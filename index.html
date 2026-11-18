@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#171310">
-  <meta name="description" content="PSU Streak — концепция Telegram-бота, который превращает посещаемость студентов ПГНИУ в игру. Зажги свой стрик.">
-  <title>PSU Streak — Зажги свой стрик</title>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#181411">
+  <meta name="description" content="PSU Streak — Telegram-бот, который помогает отмечаться на парах, сохранять серию посещений и видеть свой прогресс.">
+  <title>PSU Streak — зажги свой стрик</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/icon-64.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
 <body>
   <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <symbol id="icon-flame" viewBox="0 0 64 72">
-      <path d="M35.3 1.8c2.2 12.6-1.9 19.4-7.8 25.8-1.6-6.5-5-11.6-9.9-15.4.7 10.6-1.7 15.6-7.1 22.4C5.8 40.4 4 46.8 5.6 53.7c2.7 11.2 13.3 17.6 26.3 17.6 15.8 0 26.5-10.5 26.5-25.2 0-10-5.5-18.6-16.5-26.2 1.1 10.1-2.1 15.6-7.2 20.1.2-10.3-.8-17.5-6.9-25.2Z" fill="currentColor"/>
-    </symbol>
     <symbol id="icon-arrow" viewBox="0 0 24 24">
       <path d="M4.5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
@@ -40,175 +39,376 @@
       <circle cx="20" cy="13" r="5" fill="none" stroke="currentColor" stroke-width="1.8"/>
       <path d="M10.5 33v-3.5a9.5 9.5 0 0 1 19 0V33H10.5ZM8.5 14a4 4 0 0 0-2.4 7.2M31.5 14a4 4 0 0 1 2.4 7.2M5 33v-3a7 7 0 0 1 3.5-6.1M35 33v-3a7 7 0 0 0-3.5-6.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24">
+      <path d="M12 2.5 20 6v6c0 5-3.4 8-8 9.5C7.4 20 4 17 4 12V6l8-3.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="m8.5 12 2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-lock" viewBox="0 0 24 24">
+      <rect x="5" y="10.5" width="14" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-tg" viewBox="0 0 24 24">
+      <path d="M21.4 4.1 2.9 11.3c-.9.35-.86 1.6.05 1.9l4.6 1.5 1.75 5.4c.28.85 1.35 1.05 1.9.35l2.5-3.1 4.7 3.45c.7.5 1.7.13 1.9-.7l3-13.9c.2-1-.8-1.8-1.8-1.35Zm-3.2 3.6-8.6 7.8c-.25.22-.6.05-.65-.25l-.9-3.9 9.4-6.6c.3-.2.6.15.35.4l-.9 3.25Z" fill="currentColor"/>
+    </symbol>
   </svg>
 
   <header class="site-header" id="site-header">
     <div class="container header-inner">
       <a class="brand" href="#top" aria-label="PSU Streak — на главную">
-        <span class="brand-mark"><svg viewBox="0 0 64 72" aria-hidden="true"><use href="#icon-flame"/></svg></span>
+        <span class="brand-mark"><img src="assets/logo.png" alt="Логотип PSU Streak" width="30" height="34"></span>
         <span class="brand-name">PSU<span>STREAK</span></span>
       </a>
-      <nav class="desktop-nav" aria-label="Основная навигация">
-        <a href="#idea">Идея</a>
-        <a href="#how">Как работает</a>
-        <a href="#features">Возможности</a>
-        <a href="#future">Будущее</a>
-        <a href="#team">Команда</a>
-      </nav>
-      <a class="header-link" href="#how">О проекте <svg aria-hidden="true"><use href="#icon-arrow-up"/></svg></a>
-      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-controls="mobile-nav" aria-expanded="false">
-        <span></span><span></span>
-      </button>
     </div>
-    <nav class="mobile-nav" id="mobile-nav" aria-label="Мобильная навигация">
-      <a href="#idea">Идея <span>01</span></a>
-      <a href="#how">Как работает <span>02</span></a>
-      <a href="#features">Возможности <span>03</span></a>
-      <a href="#future">Будущее <span>04</span></a>
-      <a href="#team">Команда <span>05</span></a>
-    </nav>
   </header>
 
   <main>
+    <!-- ============ HERO ============ -->
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="hero-grain" aria-hidden="true"></div>
       <div class="container hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow hero-eyebrow"><span class="eyebrow-dot"></span> ПГНИУ <span class="eyebrow-divider">/</span> ПЕРМЬ <span class="eyebrow-divider">/</span> ПРОЕКТ TELEGRAM-БОТА</div>
           <h1 id="hero-title">Зажги свой<br><span>стрик<span class="hero-dot">.</span></span></h1>
-          <p class="hero-lead">Превращаем посещаемость в игру, к которой хочется возвращаться. Приходи на пары, сохраняй серию и прокачивай свой огонь.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#how">Как это работает <svg aria-hidden="true"><use href="#icon-arrow-up"/></svg></a>
-            <a class="text-link" href="#features">Узнать о механиках <span aria-hidden="true">↗</span></a>
+          <p class="hero-lead"><strong>PSU Streak</strong> — бот в Telegram, который превращает посещение пар в понятную привычку. Студент один раз привязывает своё ФИО к профилю, после чего отмечается на занятиях по расписанию группы. Каждый отмеченный учебный день добавляет <strong>+1 к серии</strong>, а прогресс всегда остаётся под рукой.</p>
+          <div class="hero-facts">
+            <span class="fact-chip"><svg aria-hidden="true"><use href="#icon-tg"/></svg> Работает в Telegram</span>
+            <span class="fact-chip"><svg aria-hidden="true"><use href="#icon-people"/></svg> ФИО привязывается один раз</span>
+            <span class="fact-chip"><svg aria-hidden="true"><use href="#icon-scan"/></svg> Расписание загружается из ЕТИС</span>
+            <span class="fact-chip"><svg aria-hidden="true"><use href="#icon-spark"/></svg> Монеты за выполненные задания</span>
           </div>
-          <div class="hero-footnote"><span class="tiny-flame"><svg aria-hidden="true"><use href="#icon-flame"/></svg></span> Новая привычка для студентов ПГНИУ</div>
         </div>
 
-        <div class="hero-visual" id="demo" aria-label="Интерактивный макет интерфейса бота PSU Streak">
+        <div class="hero-visual" id="demo" aria-label="Скриншот интерфейса бота PSU Streak в Telegram">
           <div class="hero-orbit orbit-one" aria-hidden="true"></div>
           <div class="hero-orbit orbit-two" aria-hidden="true"></div>
-          <div class="visual-spark spark-one" aria-hidden="true">✳</div>
-          <div class="visual-spark spark-two" aria-hidden="true">✳</div>
-          <div class="float-label" aria-hidden="true"><span class="float-label-icon">✳</span><span>Привычка<br>в игре</span></div>
+          <div class="hero-flame" aria-hidden="true"><img src="assets/logo.png" alt="" width="150" height="170"></div>
           <div class="phone">
-            <div class="phone-status"><span>9:41</span><span class="phone-status-icons" aria-hidden="true"><span class="signal-bars"><i></i><i></i><i></i><i></i></span><span class="wifi-icon">◕</span><span class="battery-icon"></span></span></div>
-            <div class="phone-header"><span class="phone-back" aria-hidden="true">‹</span><span class="phone-avatar"><svg aria-hidden="true"><use href="#icon-flame"/></svg></span><span class="phone-title"><strong>PSU Streak</strong><small>бот · макет интерфейса</small></span><span class="phone-more" aria-hidden="true">⋮</span></div>
-            <div class="phone-chat">
-              <div class="phone-date">СЕГОДНЯ</div>
-              <div class="chat-bubble">Привет! Твой огонь держится уже <strong><span class="inline-days">6</span> дней подряд.</strong> Продолжим? <span aria-hidden="true">✦</span></div>
-              <div class="streak-panel" id="streak-panel">
-                <div class="streak-topline">ТВОЙ СТРИК <span>✦ ✦ ✦</span></div>
-                <div class="streak-content"><div class="streak-number" id="streak-number">06</div><div class="streak-flame" aria-hidden="true"><svg viewBox="0 0 160 180"><defs><linearGradient id="bigFlame" x1="0" y1="1" x2="0.8" y2="0"><stop stop-color="#ff6321"/><stop offset=".58" stop-color="#ff9634"/><stop offset="1" stop-color="#ffd46f"/></linearGradient><linearGradient id="flameInner" x1=".15" y1="1" x2=".7" y2="0"><stop stop-color="#ffd059"/><stop offset="1" stop-color="#fff0a2"/></linearGradient></defs><path d="M89 5c5 37-7 48-21 62-5-18-14-29-27-39 3 25-4 39-18 56C11 99 8 117 13 133c8 28 35 43 65 43 39 0 68-25 68-63 0-29-15-51-43-75 3 25-3 40-18 53 3-31 2-52 4-86Z" fill="url(#bigFlame)"/><path d="M85 84c-1 20-11 24-18 32-2-11-6-17-15-23 1 15-7 20-11 30-7 21 9 40 36 40 23 0 39-14 39-34 0-14-8-25-21-36 0 13-4 19-10 24 1-12 1-19 0-33Z" fill="url(#flameInner)"/></svg></div></div>
-                <div class="streak-bottom"><span>ДНЕЙ ПОДРЯД</span><span class="streak-growth">↗ РАСТЁМ</span></div>
-              </div>
-              <div class="week-title"><span>ЭТА НЕДЕЛЯ</span><span id="week-status">6 / 7</span></div>
-              <div class="week-days" aria-label="Демонстрация серии посещений"><span class="day done">ПН</span><span class="day done">ВТ</span><span class="day done">СР</span><span class="day done">ЧТ</span><span class="day done">ПТ</span><span class="day done">СБ</span><span class="day today" id="today-day">ВС</span></div>
-              <button class="phone-button" id="demo-button" type="button">Зажечь сегодняшний день <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
-              <div class="phone-caption" id="demo-caption" role="status">Демо: реальная отметка требует проверки табеля</div>
+            <div class="phone-screen">
+              <img src="assets/phone-screen.jpg" width="1080" height="2160" alt="Экран бота PSU Streak: стрик 12 дней подряд, 110 монет и задание с наградой" loading="eager" decoding="async">
             </div>
-            <div class="phone-home" aria-hidden="true"></div>
           </div>
-          <span class="visual-caption">ИНТЕРАКТИВНЫЙ МАКЕТ <span>↗</span></span>
+          <span class="visual-caption">ИНТЕРФЕЙС БОТА <span>↗</span></span>
         </div>
       </div>
       <div class="container hero-bottom">
         <span class="hero-bottom-label">МЕХАНИКА<br>В ТРЁХ ШАГАХ <span aria-hidden="true">↘</span></span>
-        <span><b>01</b> Отмечай</span>
-        <span><b>02</b> Сохраняй серию</span>
-        <span><b>03</b> Зажигай ярче</span>
+        <span><b>01</b> Староста загружает расписание</span>
+        <span><b>02</b> Привяжи ФИО к профилю</span>
+        <span><b>03</b> Отмечайся на парах</span>
       </div>
     </section>
 
-    <section class="section idea-section" id="idea" aria-labelledby="idea-title">
+    <!-- ============ 01 ИДЕЯ ============ -->
+    <section class="section" id="idea" aria-labelledby="idea-title">
       <div class="container">
         <div class="section-top reveal"><span class="section-index">01 / ИДЕЯ</span><span>ЗАЧЕМ ЭТО НУЖНО</span></div>
         <div class="idea-layout">
-          <div class="idea-main reveal"><h2 class="display-heading" id="idea-title">Запись в журнале<br>не заставит прийти<br><span class="orange-text">завтра.</span></h2><div class="idea-asterisk" aria-hidden="true">✳</div></div>
-          <div class="idea-aside reveal"><p class="idea-intro">Обычные журналы и Excel-таблицы фиксируют посещаемость. Но они не показывают прогресс и не дают причины вернуться на пары на следующий день.</p><p>PSU Streak меняет это: каждый честно отмеченный день становится частью серии, которую хочется продолжать.</p><div class="idea-contrast"><div><span>ВМЕСТО</span><strong>Просто отметка<br>в таблице</strong></div><span class="contrast-arrow" aria-hidden="true">↗</span><div><span>ТЕПЕРЬ</span><strong>Прогресс, который<br>видно и чувствуешь</strong></div></div></div>
+          <div class="idea-main reveal">
+            <h2 class="display-heading" id="idea-title">Посещения,<br>которые видно<br><span class="orange-text">в динамике.</span></h2>
+            <p class="lead-p">Обычная отметка в журнале фиксирует факт посещения, но не показывает студенту прогресс и не помогает сформировать привычку ходить на занятия регулярно.</p>
+          </div>
+          <div class="idea-aside reveal">
+            <p>PSU Streak связывает профиль студента с расписанием его группы. Староста загружает в бота HTML-страницу расписания из ЕТИС, а студент один раз указывает своё ФИО. После настройки бот показывает актуальные пары и позволяет отмечаться без повторного ввода данных.</p>
+            <p><strong>Каждый отмеченный учебный день становится частью личной серии.</strong> Студент видит длину стрика, свой рекорд и историю посещений, а бот напоминает о занятиях по загруженному расписанию.</p>
+          </div>
         </div>
-        <div class="idea-footer reveal"><svg aria-hidden="true"><use href="#icon-spark"/></svg><p>Маленькое действие каждый день. <strong>Большая привычка на дистанции.</strong></p><span>PSU / STREAK</span></div>
+        <div class="compare reveal">
+          <div class="compare-row compare-head"><span>БЫЛО</span><span>СТАЛО С PSU STREAK</span></div>
+          <div class="compare-row"><span>Расписание нужно искать в ЕТИС</span><span>Актуальные пары доступны прямо в Telegram-боте</span></div>
+          <div class="compare-row"><span>Данные приходится вводить повторно</span><span>ФИО привязывается к профилю один раз</span></div>
+          <div class="compare-row"><span>Отметка существует отдельно от расписания</span><span>Бот показывает занятия группы и даёт отметить посещение</span></div>
+          <div class="compare-row"><span>Прогресс не виден студенту</span><span>Личный стрик, рекорд и история посещений всегда под рукой</span></div>
+        </div>
       </div>
     </section>
 
-    <section class="section how-section" id="how" aria-labelledby="how-title">
+    <!-- ============ 02 КАК ЭТО РАБОТАЕТ ============ -->
+    <section class="section" id="how" aria-labelledby="how-title">
       <div class="container">
-        <div class="section-top reveal"><span class="section-index">02 / КАК ЭТО РАБОТАЕТ</span><span>ОТ ПАРЫ ДО ОГНЯ</span></div>
-        <div class="section-intro reveal"><h2 class="display-heading" id="how-title">Три шага.<br><span class="orange-text">И ты в игре.</span></h2><p>Идея живёт там, где студенты уже общаются, — в Telegram. Никаких сложных ритуалов: отметка, проверка, награда.</p></div>
-        <div class="steps-grid">
-          <article class="step-card reveal"><div class="step-card-top"><span>ШАГ 01</span><svg aria-hidden="true"><use href="#icon-photo"/></svg></div><div class="step-number" aria-hidden="true">01</div><div class="step-card-bottom"><span class="step-squiggle" aria-hidden="true">↗</span><h3>Отправь фото<br>табеля</h3><p>Студент ежедневно отправляет в бота фото табеля с отметкой посещения.</p></div></article>
-          <article class="step-card reveal"><div class="step-card-top"><span>ШАГ 02</span><svg aria-hidden="true"><use href="#icon-scan"/></svg></div><div class="step-number" aria-hidden="true">02</div><div class="step-card-bottom"><span class="step-squiggle" aria-hidden="true">✳</span><h3>Пройди честную<br>проверку</h3><p>Предусмотрена проверка подлинности фото: OCR, EXIF и хеш.</p></div></article>
-          <article class="step-card step-card-accent reveal"><div class="step-card-top"><span>ШАГ 03</span><svg aria-hidden="true"><use href="#icon-flame"/></svg></div><div class="step-number" aria-hidden="true">03</div><div class="step-card-bottom"><span class="step-squiggle" aria-hidden="true">✦</span><h3>Продолжи<br>свой стрик</h3><p>За подтверждённый день растёт серия, а твой огонь становится ярче.</p></div></article>
+        <div class="section-top reveal"><span class="section-index">02 / КАК ЭТО РАБОТАЕТ</span><span>ТРИ ШАГА В БОТЕ</span></div>
+        <div class="section-heading reveal">
+          <h2 class="display-heading" id="how-title">Одна настройка.<br><span class="orange-text">Дальше — одна кнопка.</span></h2>
+          <p>Для запуска группы староста загружает расписание, а студент привязывает своё ФИО. После этого бот сам показывает нужные занятия — остаётся только открыть Telegram и отметить присутствие.</p>
         </div>
-        <div class="steps-note reveal"><span class="note-dot"></span> Представленная на сайте механика — концепция продукта, а не действующая система проверки.</div>
+        <div class="steps-grid">
+          <article class="step-card reveal">
+            <div class="step-card-top"><span>ШАГ 01 / СТАРОСТА</span><svg aria-hidden="true"><use href="#icon-scan"/></svg></div>
+            <div class="step-number" aria-hidden="true">01</div>
+            <div class="step-card-bottom"><h3>Загрузить расписание</h3>
+              <p>Староста открывает расписание своей группы в ЕТИС, сохраняет HTML-страницу на устройство и отправляет этот файл боту.</p>
+              <p>Бот разбирает файл и добавляет <strong>даты, время, названия дисциплин и аудитории</strong>. Если расписание изменилось, достаточно загрузить свежую HTML-страницу ещё раз.</p>
+            </div>
+          </article>
+          <article class="step-card reveal">
+            <div class="step-card-top"><span>ШАГ 02 / СТУДЕНТ</span><svg aria-hidden="true"><use href="#icon-people"/></svg></div>
+            <div class="step-number" aria-hidden="true">02</div>
+            <div class="step-card-bottom"><h3>Привязать ФИО</h3>
+              <p>Студент запускает бота, выбирает свою учебную группу и один раз указывает ФИО. Эти данные сохраняются в профиле.</p>
+              <p>Повторная регистрация не нужна: при следующих запусках бот сразу узнаёт пользователя и показывает расписание его группы.</p>
+            </div>
+          </article>
+          <article class="step-card step-card-accent reveal">
+            <div class="step-card-top"><span>ШАГ 03 / НА ПАРЕ</span><svg aria-hidden="true"><use href="#icon-check"/></svg></div>
+            <div class="step-number" aria-hidden="true">03</div>
+            <div class="step-card-bottom"><h3>Отметиться на занятии</h3>
+              <p>На паре студент открывает бота, выбирает текущее занятие из расписания и нажимает кнопку <strong>«Отметиться»</strong>.</p>
+              <p>Посещение сохраняется в истории, а после завершения учебного дня личный стрик увеличивается на один.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="info-panels">
+          <div class="info-panel reveal">
+            <div class="info-panel-head"><svg aria-hidden="true"><use href="#icon-scan"/></svg><h3>Как загрузить расписание из ЕТИС</h3></div>
+            <ul class="check-list">
+              <li>Открыть в ЕТИС страницу расписания нужной учебной группы</li>
+              <li>Скачать или сохранить страницу в формате <strong>HTML</strong></li>
+              <li>Отправить HTML-файл боту: это может сделать староста или его помощник</li>
+              <li>Проверить список распознанных дисциплин, дат и аудиторий</li>
+              <li>При изменениях в расписании загрузить обновлённый файл</li>
+            </ul>
+          </div>
+          <div class="info-panel reveal">
+            <div class="info-panel-head"><svg aria-hidden="true"><use href="#icon-lock"/></svg><h3>Что требуется от студента</h3></div>
+            <ul class="check-list">
+              <li>Запустить бота и выбрать свою учебную группу</li>
+              <li>Один раз привязать <strong>ФИО</strong> к Telegram-профилю</li>
+              <li>Открыть занятие из расписания и нажать «Отметиться»</li>
+              <li>После привязки ФИО повторная регистрация не требуется</li>
+              <li>В профиле хранятся ФИО, группа, отметки и история стрика</li>
+            </ul>
+          </div>
+        </div>
+        <div class="steps-note reveal"><span class="note-dot"></span><span>Староста может назначить помощников для загрузки расписания. Чтобы стать помощником, открой вкладку <strong>«Профиль»</strong> в боте и передай свой <strong>Telegram ID</strong> старосте.</span></div>
       </div>
     </section>
 
-    <section class="section features-section" id="features" aria-labelledby="features-title">
+    <!-- ============ 03 МЕХАНИКА ============ -->
+    <section class="section" id="features" aria-labelledby="features-title">
       <div class="container">
         <div class="section-top reveal"><span class="section-index">03 / ВОЗМОЖНОСТИ</span><span>ИГРОВАЯ МЕХАНИКА</span></div>
-        <div class="feature-heading reveal"><h2 class="display-heading" id="features-title">Не просто счётчик.<br><span>Целая игра вокруг привычки.</span></h2><p>Личный прогресс, азарт группы и награды за регулярность — всё работает на одну цель: не прерывать серию.</p></div>
-        <div class="feature-grid">
-          <article class="feature-card feature-streak reveal"><div class="feature-card-meta"><span>01 / ЛИЧНЫЙ ПРОГРЕСС</span><span>↗</span></div><h3>Стрик, который<br>хочется сохранить.</h3><p>Приходишь на пары — серия растёт. Вместе с ней эволюционирует твой огонь.</p><div class="feature-fire-art" aria-hidden="true"><div class="fire-ring ring-a"></div><div class="fire-ring ring-b"></div><svg viewBox="0 0 160 180"><path d="M89 5c5 37-7 48-21 62-5-18-14-29-27-39 3 25-4 39-18 56C11 99 8 117 13 133c8 28 35 43 65 43 39 0 68-25 68-63 0-29-15-51-43-75 3 25-3 40-18 53 3-31 2-52 4-86Z" fill="#21140e"/><path d="M85 84c-1 20-11 24-18 32-2-11-6-17-15-23 1 15-7 20-11 30-7 21 9 40 36 40 23 0 39-14 39-34 0-14-8-25-21-36 0 13-4 19-10 24 1-12 1-19 0-33Z" fill="#ffb65b"/></svg><span class="fire-art-star star-a">✳</span><span class="fire-art-star star-b">✦</span></div><div class="feature-streak-bottom"><span>ДЕНЬ ЗА ДНЁМ</span><span>● ● ● ● ● ● ◯</span></div></article>
-          <article class="feature-card feature-league reveal"><div class="feature-card-meta"><span>02 / СОРЕВНОВАНИЕ</span><span>↗</span></div><h3>Лиги и топы</h3><p>Соревнуйся с другими студентами. Каждый день может поднять тебя выше.</p><div class="league-visual" aria-label="Иллюстрация рейтинга лиги"><div><span>01</span><i class="league-bar league-bar-one"></i><b>✳</b></div><div class="league-current"><span>02</span><i class="league-bar league-bar-two"></i><b>ТЫ</b></div><div><span>03</span><i class="league-bar league-bar-three"></i><b>✳</b></div></div></article>
-          <article class="feature-card feature-group reveal"><div class="feature-card-meta"><span>03 / ВМЕСТЕ ЯРЧЕ</span><span>↗</span></div><h3>Командный огонь</h3><p>Общий стрик группы мотивирует поддерживать друг друга и не выпадать из ритма.</p><div class="group-visual" aria-hidden="true"><span>М</span><span>А</span><span>Я</span><span class="group-fire"><svg><use href="#icon-flame"/></svg></span><i>одна команда / один огонь</i></div></article>
-          <article class="feature-card feature-sparks reveal"><div class="feature-card-meta"><span>04 / ВНУТРЕННЯЯ ВАЛЮТА</span><span>↗</span></div><div class="feature-bottom-row"><div><h3>Искры</h3><p>Внутренняя валюта проекта. Получай искры за приглашённых друзей.</p></div><div class="spark-visual" aria-hidden="true"><svg><use href="#icon-spark"/></svg><svg><use href="#icon-spark"/></svg><svg><use href="#icon-spark"/></svg></div></div></article>
-          <article class="feature-card feature-skins reveal"><div class="feature-card-meta"><span>05 / СВОЙ СТИЛЬ</span><span>↗</span></div><div class="feature-bottom-row"><div><h3>Скины огня</h3><p>Выбирай облик огня, рамки и титулы. Играй в своём стиле.</p></div><div class="skins-visual" aria-hidden="true"><span><svg><use href="#icon-flame"/></svg></span><span><svg><use href="#icon-flame"/></svg></span><span><svg><use href="#icon-flame"/></svg></span></div></div></article>
+        <div class="section-heading reveal">
+          <h2 class="display-heading" id="features-title">Стрик, статистика<br><span class="orange-text">и свой стиль.</span></h2>
+          <p>В центре — личная регулярность: понятная отметка на паре и история посещений. Темы интерфейса и сменные рамки аватара помогают настроить оформление под себя.</p>
+        </div>
+        <div class="feature-grid feature-grid-simple">
+          <article class="feature-card reveal">
+            <div class="feature-card-meta"><span>01 / ЛИЧНЫЙ ПРОГРЕСС</span><span>↗</span></div>
+            <h3>Личный стрик</h3>
+            <p>Каждый полностью отмеченный учебный день — <strong>+1 к личной серии</strong>. Отмечайся на занятиях по расписанию группы, сохраняй регулярность и следи за своим прогрессом в профиле.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-card-meta"><span>02 / РАСПИСАНИЕ</span><span>↗</span></div>
+            <h3>Пары на сегодня</h3>
+            <p>Бот показывает расписание группы из загруженного HTML-файла ЕТИС: время, дисциплину и аудиторию. Текущее занятие находится в одном экране с кнопкой отметки.</p>
+            <div class="lesson-preview" aria-label="Пример занятия в расписании">
+              <span class="lesson-time">10:10–11:40</span>
+              <strong>Текущее занятие</strong>
+              <small>Отметка доступна в боте</small>
+            </div>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-card-meta"><span>03 / СТАТИСТИКА</span><span>↗</span></div>
+            <h3>История посещений</h3>
+            <p>В профиле видно текущий стрик, личный рекорд и календарь отмеченных учебных дней. Вся статистика показывает только собственную динамику.</p>
+            <div class="week-mini" aria-hidden="true"><span class="done">ПН</span><span class="done">ВТ</span><span class="done">СР</span><span class="done">ЧТ</span><span class="done">ПТ</span><span>СБ</span><span>ВС</span></div>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-card-meta"><span>04 / ОФОРМЛЕНИЕ</span><span>↗</span></div>
+            <h3>Темы и рамки аватара</h3>
+            <p>Выбирай тему интерфейса и меняй рамку аватара, чтобы оформить профиль под себя. Эти настройки меняют только внешний вид и не влияют на стрик или статистику.</p>
+          </article>
+          <article class="feature-card coin-card reveal">
+            <div class="feature-card-meta"><span>05 / ВАЛЮТА И ЗАДАНИЯ</span></div>
+            <h3>Монеты и задания</h3>
+            <p>Монеты — внутренняя валюта PSU Streak. Их можно заработать, выполняя задания. Если задание не подходит, его можно заменить: доступно до трёх замен в день.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="fair-section" aria-labelledby="fair-title">
-      <div class="container fair-layout">
-        <div class="fair-copy reveal"><div class="section-index">НАШ ПРИНЦИП / ЧЕСТНАЯ ИГРА</div><h2 class="display-heading" id="fair-title">Плати за стиль.<br>Не за место<br>в топе.</h2></div>
-        <div class="fair-detail reveal"><div class="fair-stamp" aria-hidden="true"><svg><use href="#icon-flame"/></svg><span>FAIR<br>PLAY</span></div><p>Подписка и покупки дают косметику и удобство, но не преимущество в рейтинге. Побеждает только честная регулярность.</p><div class="fair-tags"><span>СКИНЫ</span><span>РАМКИ</span><span>ТИТУЛЫ</span><span>БЕЗ PAY-TO-WIN</span></div><small>Возможные источники дохода проекта: подписка, кастомизация и реклама локальных бизнесов.</small></div>
-      </div>
-    </section>
-
-    <section class="section audience-section" id="audience" aria-labelledby="audience-title">
+    <!-- ============ 04 ДЛЯ КОГО ============ -->
+    <section class="section" id="audience" aria-labelledby="audience-title">
       <div class="container">
         <div class="section-top reveal"><span class="section-index">04 / ДЛЯ КОГО</span><span>ПОЛЬЗА ДЛЯ КАЖДОГО</span></div>
-        <div class="audience-heading reveal"><h2 class="display-heading" id="audience-title">Один огонь.<br><span class="orange-text">Польза для всех.</span></h2><p>PSU Streak соединяет личную мотивацию с общей задачей — ходить на занятия регулярно.</p></div>
+        <div class="section-heading reveal">
+          <h2 class="display-heading" id="audience-title">Один бот.<br><span class="orange-text">Польза для всех.</span></h2>
+          <p>PSU Streak связывает расписание группы с личным профилем студента и упрощает отметку посещения для всех участников учебного процесса.</p>
+        </div>
         <div class="audience-grid">
-          <article class="audience-card reveal"><span class="audience-num">01</span><div class="audience-icon"><svg aria-hidden="true"><use href="#icon-flame"/></svg></div><h3>Студентам</h3><p>Видимый прогресс, интерес и собственный рекорд, ради которого хочется прийти завтра.</p><span class="audience-arrow" aria-hidden="true">↗</span></article>
-          <article class="audience-card reveal"><span class="audience-num">02</span><div class="audience-icon"><svg aria-hidden="true"><use href="#icon-people"/></svg></div><h3>Старостам</h3><p>Общий стрик группы и ещё один способ поддерживать и мотивировать однокурсников.</p><span class="audience-arrow" aria-hidden="true">↗</span></article>
-          <article class="audience-card reveal"><span class="audience-num">03</span><div class="audience-icon audience-icon-square"><svg aria-hidden="true"><use href="#icon-scan"/></svg></div><h3>Деканатам</h3><p>В перспективе — удобный дашборд посещаемости и отчёты для работы с данными.</p><span class="audience-arrow" aria-hidden="true">↗</span></article>
+          <article class="audience-card reveal">
+            <span class="audience-num">01</span>
+            <div class="audience-icon"><img src="assets/logo.png" alt=""></div>
+            <h3>Студентам</h3>
+            <ul>
+              <li>ФИО привязывается к профилю только один раз</li>
+              <li>Актуальные пары группы доступны прямо в Telegram</li>
+              <li>Отметка посещения занимает одно нажатие</li>
+              <li>Личный стрик, рекорд и история учебных дней</li>
+            </ul>
+          </article>
+          <article class="audience-card reveal">
+            <span class="audience-num">02</span>
+            <div class="audience-icon"><svg aria-hidden="true"><use href="#icon-people"/></svg></div>
+            <h3>Старостам</h3>
+            <ul>
+              <li>Загрузка расписания группы обычным HTML-файлом из ЕТИС</li>
+              <li>Автоматическое распознавание дисциплин, дат и аудиторий</li>
+              <li>Повторная загрузка файла при изменении расписания</li>
+              <li>Не нужно вручную добавлять каждую пару в бота</li>
+            </ul>
+          </article>
+          <article class="audience-card reveal">
+            <span class="audience-num">03</span>
+            <div class="audience-icon"><svg aria-hidden="true"><use href="#icon-scan"/></svg></div>
+            <h3>Деканатам и преподавателям</h3>
+            <ul>
+              <li>Структурированная история посещений по расписанию группы</li>
+              <li>Понятная связь отметки с конкретной датой и дисциплиной</li>
+              <li>Меньше ручной работы с расписанием и списками студентов</li>
+              <li>Профиль студента связан с конкретной группой и расписанием</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section future-section" id="future" aria-labelledby="future-title">
-      <div class="container">
-        <div class="section-top reveal"><span class="section-index">05 / ПЕРСПЕКТИВЫ</span><span>ЧТО ДАЛЬШЕ</span></div>
-        <div class="future-heading reveal"><h2 class="display-heading" id="future-title">Начинаем в Перми.<br><span class="orange-text">Думаем шире.</span></h2><p>В основе — локальный продукт для ПГНИУ. Дальше у идеи есть пространство для роста.</p></div>
-        <div class="timeline">
-          <article class="timeline-item reveal"><div class="timeline-marker"><span></span></div><span class="timeline-num">01 / СТАРТ</span><h3>ПГНИУ</h3><p>Геймификация посещаемости для студентов университета.</p></article>
-          <article class="timeline-item reveal"><div class="timeline-marker"><span></span></div><span class="timeline-num">02 / МАСШТАБ</span><h3>Другие вузы</h3><p>Расширение на университеты Перми и других городов России.</p></article>
-          <article class="timeline-item reveal"><div class="timeline-marker"><span></span></div><span class="timeline-num">03 / ИНСТРУМЕНТЫ</span><h3>Для деканатов</h3><p>Отдельный дашборд с посещаемостью и отчётами.</p></article>
-          <article class="timeline-item reveal"><div class="timeline-marker"><span></span></div><span class="timeline-num">04 / СОБЫТИЯ</span><h3>Большая игра</h3><p>Сезонные лиги и челленджи между вузами.</p></article>
+    <!-- ============ ГДЕ ВСТРЕТИМСЯ ============ -->
+    <div class="container contact-strip">
+      <div class="channels reveal">
+        <span class="channels-label">ГДЕ ВСТРЕТИМСЯ</span>
+        <div class="channels-list">
+          <a href="https://t.me/PSU_STREAK_bot"><svg aria-hidden="true"><use href="#icon-tg"/></svg> Telegram-бот</a>
+          <a href="https://t.me/PSUStreak"><svg aria-hidden="true"><use href="#icon-tg"/></svg> Telegram-канал</a>
         </div>
-        <div class="channels reveal"><span>ГДЕ ВСТРЕТИМСЯ</span><div><span>Telegram</span><i>✳</i><span>ВКонтакте</span><i>✳</i><span>QR на парах</span><i>✳</i><span>Друзья и группы</span></div></div>
       </div>
-    </section>
+    </div>
 
-    <section class="section team-section" id="team" aria-labelledby="team-title">
+    <!-- ============ 05 КОМАНДА ============ -->
+    <section class="section" id="team" aria-labelledby="team-title">
       <div class="container">
-        <div class="section-top reveal"><span class="section-index">06 / КОМАНДА</span><span>ЛЮДИ ЗА ПРОЕКТОМ</span></div>
-        <div class="team-heading reveal"><h2 class="display-heading" id="team-title">Те, кто зажигает<br><span class="orange-text">PSU Streak.</span></h2><p>От интерфейса до разработки и продвижения — над проектом работает команда из шести человек.</p></div>
+        <div class="section-top reveal"><span class="section-index">05 / КОМАНДА</span><span>ЛЮДИ ЗА ПРОЕКТОМ</span></div>
+        <div class="section-heading reveal">
+          <h2 class="display-heading" id="team-title">Те, кто зажигает<br><span class="orange-text">PSU Streak.</span></h2>
+          <p>От идеи и дизайна до разработки и продвижения — над проектом работает команда из шести человек. У каждого своя зона ответственности.</p>
+        </div>
         <div class="team-grid">
-          <article class="team-card reveal"><div class="team-card-top"><span>01 / УПРАВЛЕНИЕ</span><span>↗</span></div><div class="team-monogram">МШ</div><h3>Михаил Шутылев</h3><p>Антонович</p><span class="team-role">Руководитель проекта</span></article>
-          <article class="team-card reveal"><div class="team-card-top"><span>02 / ДИЗАЙН</span><span>↗</span></div><div class="team-monogram">ЖК</div><h3>Жамшид Курбанов</h3><p>Аъзамович</p><span class="team-role">Дизайнер</span></article>
-          <article class="team-card reveal"><div class="team-card-top"><span>03 / ДИЗАЙН</span><span>↗</span></div><div class="team-monogram">АР</div><h3>Александр Рудаков</h3><p>Иванович</p><span class="team-role">Дизайнер</span></article>
-          <article class="team-card reveal"><div class="team-card-top"><span>04 / ПРОДВИЖЕНИЕ</span><span>↗</span></div><div class="team-monogram">ЕЛ</div><h3>Егор Лобанов</h3><p>Дмитриевич</p><span class="team-role">SMM</span></article>
-          <article class="team-card reveal"><div class="team-card-top"><span>05 / ПРОДВИЖЕНИЕ</span><span>↗</span></div><div class="team-monogram">РП</div><h3>Роман Перетыкин</h3><p>Константинович</p><span class="team-role">SMM</span></article>
-          <article class="team-card reveal"><div class="team-card-top"><span>06 / РАЗРАБОТКА</span><span>↗</span></div><div class="team-monogram">ЯС</div><h3>Ярослав Суханов</h3><p>Иванович</p><span class="team-role">Разработчик</span></article>
+          <article class="team-card reveal">
+            <div class="team-card-top"><span>01 / УПРАВЛЕНИЕ</span><span>↗</span></div>
+            <div class="team-monogram">МШ</div>
+            <h3>Михаил Шутылев</h3><p class="team-patronym">Антонович</p>
+            <span class="team-role">Руководитель проекта</span>
+            <p class="team-desc">Продуктовая стратегия, организация работы команды и коммуникация с университетом.</p>
+          </article>
+          <article class="team-card reveal">
+            <div class="team-card-top"><span>02 / ДИЗАЙН</span><span>↗</span></div>
+            <div class="team-monogram">ЖК</div>
+            <h3>Жамшид Курбанов</h3><p class="team-patronym">Аъзамович</p>
+            <span class="team-role">Дизайнер</span>
+            <p class="team-desc">Интерфейс бота и сайта, фирменный стиль и визуальные материалы.</p>
+          </article>
+          <article class="team-card reveal">
+            <div class="team-card-top"><span>03 / ДИЗАЙН</span><span>↗</span></div>
+            <div class="team-monogram">АР</div>
+            <h3>Александр Рудаков</h3><p class="team-patronym">Иванович</p>
+            <span class="team-role">Дизайнер</span>
+            <p class="team-desc">Брендинг, темы оформления и визуальная система интерфейса бота.</p>
+          </article>
+          <article class="team-card reveal">
+            <div class="team-card-top"><span>04 / ПРОДВИЖЕНИЕ</span><span>↗</span></div>
+            <div class="team-monogram">ЕЛ</div>
+            <h3>Егор Лобанов</h3><p class="team-patronym">Дмитриевич</p>
+            <span class="team-role">SMM</span>
+            <p class="team-desc">Telegram-канал проекта, контент и коммуникация со студентами.</p>
+          </article>
+          <article class="team-card reveal">
+            <div class="team-card-top"><span>05 / ПРОДВИЖЕНИЕ</span><span>↗</span></div>
+            <div class="team-monogram">РП</div>
+            <h3>Роман Перетыкин</h3><p class="team-patronym">Константинович</p>
+            <span class="team-role">SMM</span>
+            <p class="team-desc">Контент для студенческих чатов и развитие Telegram-канала проекта.</p>
+          </article>
+          <article class="team-card reveal">
+            <div class="team-card-top"><span>06 / РАЗРАБОТКА</span><span>↗</span></div>
+            <div class="team-monogram">ЯС</div>
+            <h3>Ярослав Суханов</h3><p class="team-patronym">Иванович</p>
+            <span class="team-role">Разработчик</span>
+            <p class="team-desc">Telegram-бот, привязка профилей, разбор HTML-расписания из ЕТИС и база стриков.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 06 FAQ ============ -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="container container-narrow">
+        <div class="section-top reveal"><span class="section-index">06 / FAQ</span><span>ЧАСТЫЕ ВОПРОСЫ</span></div>
+        <div class="section-heading reveal">
+          <h2 class="display-heading" id="faq-title">Коротко<br><span class="orange-text">о главном.</span></h2>
+          <p>Собрали главное о регистрации, загрузке расписания из ЕТИС и отметках на занятиях.</p>
+        </div>
+        <div class="faq-list reveal">
+          <details class="faq-item" open>
+            <summary>Нужно ли устанавливать отдельное приложение?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p>Нет. PSU Streak работает внутри Telegram. Достаточно запустить бота, выбрать группу и один раз привязать ФИО к профилю.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Что нужно сделать студенту перед первой отметкой?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p>Выбрать учебную группу и указать своё ФИО. Бот сохранит привязку к Telegram-профилю, поэтому повторно вводить данные перед каждой парой не придётся.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Как расписание попадает в бота?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p>Староста открывает расписание группы в ЕТИС, скачивает HTML-страницу и загружает файл в бота. Бот извлекает даты, время, дисциплины и аудитории. При изменении расписания загружается свежий HTML-файл.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Как отметиться на паре?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p>Открой расписание в боте, выбери текущее занятие и нажми кнопку «Отметиться». Посещение сразу сохранится в истории профиля.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Какие данные хранятся в профиле?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p>Telegram ID, ФИО, учебная группа, история отметок и текущий стрик. Пользователь может запросить удаление своего профиля.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Что будет, если пропустить учебный день?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p>Текущая серия завершится, а следующая отметка начнёт новый стрик. Предыдущий личный рекорд останется в статистике профиля.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Участие обязательно для всех студентов?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p>Нет. Использование бота добровольное: студент самостоятельно решает, подключаться ли к системе и вести личную серию посещений.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ JOIN / CTA ============ -->
+    <section class="join" id="join" aria-labelledby="join-title">
+      <div class="join-grain" aria-hidden="true"></div>
+      <div class="container join-inner">
+        <div class="join-flame reveal"><img src="assets/logo.png" alt="" width="120" height="136"></div>
+        <h2 class="display-heading reveal" id="join-title">Готов зажечь<br><span class="orange-text">свой стрик?</span></h2>
+        <p class="reveal">Запусти бота в Telegram, выбери свою группу и один раз привяжи ФИО. После этого пары из расписания будут доступны прямо в профиле.</p>
+        <div class="join-channels reveal">
+          <a class="qr-card" href="https://t.me/PSU_STREAK_bot"><img src="assets/qr-bot.svg" width="128" height="128" alt="QR-код: Telegram-бот"><strong>Telegram-бот</strong><small>@PSU_STREAK_bot</small></a>
+          <a class="qr-card" href="https://t.me/PSUStreak"><img src="assets/qr-channel.svg" width="128" height="128" alt="QR-код: Telegram-канал"><strong>Telegram-канал</strong><small>@PSUStreak</small></a>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-main"><div class="footer-orb" aria-hidden="true"></div><div class="footer-copy"><div class="section-index">PSU STREAK / ПГНИУ</div><h2 class="display-heading">У привычки есть искра.<br><span>Зажги её.</span></h2><p>Проект о том, как превратить посещаемость в игру и сделать каждый учебный день немного интереснее.</p><a class="button button-primary footer-button" href="uploads/PSU-Streak-презентация-_1_.pdf" target="_blank" rel="noopener noreferrer">Смотреть презентацию <svg aria-hidden="true"><use href="#icon-arrow-up"/></svg></a></div><div class="footer-flame" aria-hidden="true"><svg viewBox="0 0 160 180"><path d="M89 5c5 37-7 48-21 62-5-18-14-29-27-39 3 25-4 39-18 56C11 99 8 117 13 133c8 28 35 43 65 43 39 0 68-25 68-63 0-29-15-51-43-75 3 25-3 40-18 53 3-31 2-52 4-86Z" fill="#ff7529"/><path d="M85 84c-1 20-11 24-18 32-2-11-6-17-15-23 1 15-7 20-11 30-7 21 9 40 36 40 23 0 39-14 39-34 0-14-8-25-21-36 0 13-4 19-10 24 1-12 1-19 0-33Z" fill="#ffc063"/></svg></div></div>
-    <div class="container footer-bottom"><a class="brand" href="#top" aria-label="PSU Streak — наверх"><span class="brand-mark"><svg viewBox="0 0 64 72" aria-hidden="true"><use href="#icon-flame"/></svg></span><span class="brand-name">PSU<span>STREAK</span></span></a><span>Концепция проекта · ПГНИУ, Пермь</span><a href="#top">Наверх ↑</a></div>
+    <div class="container footer-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark"><img src="assets/logo.png" alt="" width="26" height="30"></span>
+        <span class="brand-name">PSU<span>STREAK</span></span>
+      </a>
+      <nav class="footer-nav" aria-label="Навигация в подвале">
+        <a href="#idea">Идея</a>
+        <a href="#how">Как это работает</a>
+        <a href="#features">Механика</a>
+        <a href="#team">Команда</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <p class="footer-note">© PSU Streak, <span id="year">2026</span></p>
+    </div>
   </footer>
 </body>
 </html>
